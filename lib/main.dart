@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
 import 'model.dart';
+import 'detail.dart';
 
 
 var dio = Dio();
@@ -48,7 +49,6 @@ class HomePageState extends State<HomePage> {
         title: Text('宝可梦APP'),
         backgroundColor: Colors.cyan,
       ),
-      drawer: Drawer(),
       floatingActionButton: FloatingActionButton(onPressed: null, child: Icon(Icons.refresh)),
       body: pokeModel == null ? Center(
         child: CircularProgressIndicator(),
@@ -57,8 +57,8 @@ class HomePageState extends State<HomePage> {
           children: pokeModel.pokemon.map((poke) => Padding(
             padding: EdgeInsets.all(10.0),
             child: InkWell(
-              onTap: () => {
-                // TODO:
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => PokemonDetail(pokemon: poke)));
               },
               child: Card(
                 child: Column(
