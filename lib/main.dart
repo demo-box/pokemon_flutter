@@ -49,7 +49,14 @@ class HomePageState extends State<HomePage> {
         title: Text('宝可梦APP'),
         backgroundColor: Colors.cyan,
       ),
-      floatingActionButton: FloatingActionButton(onPressed: null, child: Icon(Icons.refresh)),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          pokeModel = null;
+          fetchData();
+          setState(() {});
+        },
+        child: Icon(Icons.refresh),
+        backgroundColor: Colors.cyan,),
       body: pokeModel == null ? Center(
         child: CircularProgressIndicator(),
       ) : GridView.count(
