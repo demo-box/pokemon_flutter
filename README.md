@@ -42,7 +42,7 @@ setState(() {
 ```
 
 ### 解析JSON字符串
-一般API会返回JSON格式的数据，在JavaScript中，只需要调用JSON.parse, 就可以将JSON转为Object, 而在Dart中，则没有那么简单, 需要定义Model类. pokemon_flutter使用了https://javiercbk.github.io/json_to_dart/ 这个在线工具,自动根据json生成Model类(生成的Model类，可能会有错误，需要人工修改)
+一般API会返回JSON格式的数据，在JavaScript中，由于JavaScript是动态类型的语言，所以通过JSON.parse, 就可以将JSON转为合适的Object, 而Dart是一门静态类型的语言，如果直接条用jsonDecode, 将JSON转为Map, 会丢失类型信息，丧失静态类型语言的编译时安全等特性，所以我们一般需要定义Model类. pokemon_flutter使用了https://javiercbk.github.io/json_to_dart/ 这个在线工具,自动根据json生成Model类(生成的Model类，可能会有错误，需要人工修改)
 
 ### 导航
 使用Navigator可以实现导航
